@@ -31,13 +31,18 @@ class ApplicationTest(unittest.TestCase):
 
         fake_mail_write = Mock(side_effect = self.fake_write)
         fake_mail_send = Mock(side_effect = self.fake_send)
-
         app.MailSystem.write = fake_mail_write
         app.MailSystem.send = fake_mail_send
 
         obj.notify_selected()
 
+        print("\n\n")
+        print(fake_mail_write.call_args_list)
+        print(fake_mail_send.call_args_list)
+
         self.assertEqual(fake_mail_write.call_count, fake_mail_send.call_count)
+        self.assertEqual(fake_mail_write.call_count, 4)
+        self.assertEqual(4, fake_mail_send.call_count)
 
 if __name__ == "__main__":
     unittest.main()
