@@ -10,6 +10,13 @@ class ApplicationTest(unittest.TestCase):
         fake_get_names.return_value = (["William", "Oliver", "Henry", "Liam"], ["William", "Oliver", "Henry"])
         app.Application.get_names = fake_get_names
     
+    def fake_write(self, name):
+        context = "Congrats, " + name + "!"
+        return context
+
+    def fake_send(self, name, context):
+        print(context)
+
     def test_app(self):
 
         obj = app.Application()
@@ -22,9 +29,15 @@ class ApplicationTest(unittest.TestCase):
         self.assertEqual(n_person, "Liam")
         print(n_person, "selected")
 
+        fake_mail_write = Mock(side_effect = self.fake_write)
+        fake_mail_send = Mock(side_effect = self.fake_send)
+
+        app.MailSystem.write = fake_mail_write
+        app.MailSystem.send = fake_mail_send
+
         obj.notify_selected()
 
-
+        self.assertEqual(fake_mail_write.call_count, fake_mail_send.call_count)
 
 if __name__ == "__main__":
     unittest.main()
