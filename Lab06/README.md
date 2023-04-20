@@ -62,14 +62,14 @@ valgrind report:
 ```
 
 
-Lab6
-| | Valgrind | ASAN |
-| ------------------------------- | --- | --- |
-| Heap out-of-bounds read/write | | |
-| Stack out-of-bounds read/write | | |
-| Global out-of-bounds read/write | | |
-| Use-after-free | | |
-| Use-after-return | | |
+### Lab6
+|                      | Valgrind | ASAN |
+|        -------       |    --    |  --  |
+| Heap out-of-bounds   |          |      |
+| Stack out-of-bounds  |          |      |
+| Global out-of-bounds |          |      |
+| Use-after-free       |          |      |
+| Use-after-return     |          |      |
 
 
 ## Stack buffer overflow
