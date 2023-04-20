@@ -64,6 +64,7 @@ valgrind report:
 
 Lab6
 | | Valgrind | ASAN |
+| ------------------------------- | --- | --- |
 | Heap out-of-bounds read/write | | |
 | Stack out-of-bounds read/write | | |
 | Global out-of-bounds read/write | | |
