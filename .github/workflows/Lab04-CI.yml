@@ -1,6 +1,6 @@
 name: Lab04 CI
 run-name: Lab04 CI is testing out GitHub Actions 🚀
-on: [push]
+on: [fork]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
