@@ -5,14 +5,6 @@ main_addr = 0x4011a9
 find_addr = 0x401380
 avoid_addr = 0x401385
 
-def handle_fgets_real_input(raw_input):
-    idx = 0
-    for c in raw_input:
-        if c == ord('\n') or c == ord('\0'):
-            break
-        idx += 1
-    return raw_input[:idx]
-
 class my_fgets(angr.SimProcedure):
     def run(self, fmt, n):
         simfd = self.state.posix.get_fd(sys.stdin.fileno())
