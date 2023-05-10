@@ -20,8 +20,8 @@ class my_fgets(angr.SimProcedure):
         self.state.memory.store(s, data)
         return ret_size
 
-proj = angr.Project('./src/prog', load_options={'auto_load_libs': False})
-proj.hook_symbol('fgets', my_fgets(), replace=True)
+proj = angr.Project('./src/prog')#, load_options={'auto_load_libs': False})
+# proj.hook_symbol('fgets', my_fgets(), replace=True)
 
 state = proj.factory.blank_state(addr=main_addr)
 
