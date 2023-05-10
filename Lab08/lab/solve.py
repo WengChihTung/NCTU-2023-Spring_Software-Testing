@@ -31,7 +31,9 @@ if simgr.found:
     print(simgr.found[0].posix.dumps(sys.stdin.fileno()))
 
     s = simgr.found[0].posix.dumps(sys.stdin.fileno())
+    f = open("solve_input", "w")
     for i in range(0, 15):
-        print(int.from_bytes(s[i * 4 : i * 4 + 4], byteorder='little'))
+        f.write(str(int.from_bytes(s[i * 4 : i * 4 + 4], byteorder='little')) + "\n")
+    f.close()
 else:
     print('Failed')
